@@ -1,7 +1,22 @@
 ﻿@page "/"
+@using SimpleBlogBlazor.Shared.Models
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+@if (posts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+    @foreach (var post in posts)
+    {
+        <tr>
+            <td>@post.Title</td>
+            <td>@post.Content</td>
+            <td>@post.Content</td>
+            <td>@post.CreatedOn</td>
+            <a href="/details/@post.PostId">Details</a>
+        </tr>
+    }
+}

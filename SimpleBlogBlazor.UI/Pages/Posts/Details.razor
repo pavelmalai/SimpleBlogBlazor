@@ -1,0 +1,8 @@
+﻿@page "/details/{PostId}"
+
+@if (@Post != null)
+{
+    <h3>@Post.Title</h3>
+    <div>@Post.Content</div>
+    <div>@Post.CreatedOn</div>
+}

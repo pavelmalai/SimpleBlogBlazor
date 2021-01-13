@@ -1,0 +1,24 @@
+﻿@page "/edit";
+@page "/edit/{postId}";
+
+<h3>Create New Post</h3>
+<EditForm Model="@post" OnValidSubmit="@HandleValidSubmitAsync" OnInvalidSubmit="@HandleInvalidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>
+            Identifier:
+            <InputText @bind-Value="post.Title" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Description (optional):
+            <InputTextArea @bind-Value="post.Content" />
+        </label>
+    </p>
+
+    <button type="submit">Submit</button>
+
+</EditForm>

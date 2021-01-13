@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SimpleBlogBlazor.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -18,7 +19,7 @@ namespace SimpleBlogBlazor.UI
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["ApiUrl"]) });
-
+            builder.Services.AddScoped<IPostsService, PostsService>();
             builder.Services.AddOidcAuthentication(options =>
             {
                 builder.Configuration.Bind("Auth0", options.ProviderOptions);

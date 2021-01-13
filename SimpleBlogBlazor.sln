@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBlogBlazor.UI", "Simp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBlogBlazor.API", "SimpleBlogBlazor.API\SimpleBlogBlazor.API.csproj", "{285910E0-A5E4-45CF-822D-463B615340FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBlogBlazor.Shared", "SimpleBlogBlazor.Shared\SimpleBlogBlazor.Shared.csproj", "{7A259932-75B6-4F9A-877A-A44D07E16E81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{285910E0-A5E4-45CF-822D-463B615340FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{285910E0-A5E4-45CF-822D-463B615340FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{285910E0-A5E4-45CF-822D-463B615340FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A259932-75B6-4F9A-877A-A44D07E16E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A259932-75B6-4F9A-877A-A44D07E16E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A259932-75B6-4F9A-877A-A44D07E16E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A259932-75B6-4F9A-877A-A44D07E16E81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

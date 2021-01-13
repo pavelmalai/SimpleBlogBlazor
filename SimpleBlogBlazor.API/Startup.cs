@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using SimpleBlogBlazor.API.DataAccess;
+using SimpleBlogBlazor.Shared.Models;
+using System;
 
 namespace SimpleBlogBlazor.API
 {
@@ -31,14 +34,16 @@ namespace SimpleBlogBlazor.API
             });
             services.AddCors();
             services.AddControllers();
+            services.AddDbContext<BloggingContext>(options => options.UseInMemoryDatabase(databaseName: "Blog"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, BloggingContext dbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                SeedData(dbContext);
             }
             app.UseCors(options => options.WithOrigins("https://localhost:5001").AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
@@ -49,6 +54,25 @@ namespace SimpleBlogBlazor.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void SeedData(BloggingContext db)
+        {
+            db.Posts.Add(new Post
+            {
+                PostId = Guid.NewGuid(),
+                Title = "Article 1",
+                Content = "content1",
+                CreatedOn = DateTime.Now
+            });
+            db.Posts.Add(new Post
+            {
+                PostId = Guid.NewGuid(),
+                Title = "Article 2",
+                Content = "Content 2",
+                CreatedOn = DateTime.Now
+            });
+            db.SaveChanges();
         }
     }
 }
