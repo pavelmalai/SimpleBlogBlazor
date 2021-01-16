@@ -8,15 +8,18 @@
 }
 else
 {
+    <div class="index-container">
+        <div class="ui active centered inline loader"></div>
 
-    @foreach (var post in posts)
-    {
-        <tr>
-            <td>@post.Title</td>
-            <td>@post.Content</td>
-            <td>@post.Content</td>
-            <td>@post.CreatedOn</td>
-            <a href="/details/@post.PostId">Details</a>
-        </tr>
-    }
+    </div>
+    @*@foreach (var post in posts)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.Content</td>
+                <td>@post.Content</td>
+                <td>@post.CreatedOn</td>
+                <a href="/details/@post.PostId">Details</a>
+            </tr>
+        }*@
 }
